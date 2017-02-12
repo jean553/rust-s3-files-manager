@@ -2,3 +2,4 @@
 .vagrant
 rust-s3-files-manager/target/*
 Cargo.lock
+core
