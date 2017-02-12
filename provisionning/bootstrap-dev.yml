@@ -1,3 +1,11 @@
 ---
 - hosts: localhost
   become: yes
+
+  tasks:
+
+    - name: set zsh default directory
+      lineinfile:
+        dest="{{ ansible_env.HOME_DIRECTORY }}/.zshrc"
+        line="cd {{ ansible_env.APP_PATH }}"
+        insertafter=EOF

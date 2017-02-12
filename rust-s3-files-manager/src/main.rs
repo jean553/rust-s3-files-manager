@@ -9,5 +9,12 @@ fn ping() -> &'static str {
 }
 
 fn main() {
-    rocket::ignite().mount("/", routes![ping]).launch();
+
+    rocket::ignite().mount(
+        "/api/1",
+        routes![ping]
+    ).launch();
 }
+
+#[cfg(test)]
+mod test;
