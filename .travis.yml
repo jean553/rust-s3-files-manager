@@ -1,0 +1,6 @@
+language: rust
+rust:
+    - nightly
+
+before_script:
+    - cd rust-s3-files-manager/ 
