@@ -2,10 +2,14 @@
 # vi: set ft=ruby ts=2 sw=2 expandtab :
 
 PROJECT = "rust-s3-files-manager"
+HOME_DIRECTORY = "/home/vagrant"
+PROJECT_DIRECTORY = "#{HOME_DIRECTORY}/#{PROJECT}"
 
 DOCKER_ENV = {
   "HOST_USER_UID" => Process.euid,
-  "APP_PATH" => "/home/vagrant/rust-s3-files-manager" 
+  "HOME_DIRECTORY" => "#{HOME_DIRECTORY}",
+  "PROJECT_DIRECTORY" => "#{PROJECT_DIRECTORY}",
+  "APP_PATH" => "#{PROJECT_DIRECTORY}/rust-s3-files-manager"
 }
 
 ENV['VAGRANT_NO_PARALLEL'] = 'yes'
@@ -20,7 +24,7 @@ Vagrant.configure(2) do |config|
       d.has_ssh = true
       d.env = DOCKER_ENV
       d.volumes =  [
-        "#{ENV['PWD']}/:#{DOCKER_ENV['APP_PATH']}",
+        "#{ENV['PWD']}/:#{PROJECT_DIRECTORY}",
       ]
     end
     app.ssh.username = "vagrant"
@@ -29,7 +33,7 @@ Vagrant.configure(2) do |config|
       s.env = DOCKER_ENV
       s.inline = "
         set -e
-        cd $APP_PATH
+        cd $PROJECT_DIRECTORY
         ansible-playbook provisionning/bootstrap-dev.yml
         echo 'done, you can now run `vagrant ssh`'
       "
