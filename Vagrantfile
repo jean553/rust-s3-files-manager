@@ -16,6 +16,13 @@ ENV['VAGRANT_NO_PARALLEL'] = 'yes'
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 Vagrant.configure(2) do |config|
 
+  config.vm.define "s3" do |s3|
+    s3.vm.provider "docker" do |d|
+      d.image = "jean553/docker-s3-server-dev"
+      d.name = "#{PROJECT}_s3"
+    end
+  end
+
   config.ssh.insert_key = false
   config.vm.define "dev", primary: true do |app|
     app.vm.provider "docker" do |d|
