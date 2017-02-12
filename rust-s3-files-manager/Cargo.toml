@@ -6,6 +6,7 @@ authors = ["Jean.LELIEVRE@supinfo.com"]
 [dependencies]
 rocket = "0.2.0"
 rocket_codegen = "0.2.0"
+rusoto = {version = "0.22", features = ["s3"]}
 
 [dev-dependencies]
 rocket = {version = "0.2.0", features = ["testing"]}
