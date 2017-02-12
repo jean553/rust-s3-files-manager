@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jean553/rust-s3-files-manager.svg?branch=master)](https://travis-ci.org/jean553/rust-s3-files-manager)
+
 # rust-s3-files-manager
 
 Clone of aiohttp-s3-files-manager but using Rust.
