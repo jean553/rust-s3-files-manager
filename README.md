@@ -2,8 +2,25 @@
 
 Clone of aiohttp-s3-files-manager but using Rust.
 
-Start the service:
+## Start the service
+
+Start and connect to the container:
 
 ```
 vagrant up
+vagrant ssh
+```
+
+Run the service:
+
+```
+cargo run
+```
+
+(the initial directory is the Rust project directory)
+
+## Tests
+
+```
+cargo test
 ```
