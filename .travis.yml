@@ -4,3 +4,9 @@ rust:
 
 before_script:
     - cd rust-s3-files-manager/ 
+
+script:
+    - cargo run --bin rust-s3-files-manager & echo $! > /tmp/service.pid 
+    - sleep 5 # let some time for the service to start
+    - cargo run --bin tests
+    - kill "$(cat /tmp/service.pid)"

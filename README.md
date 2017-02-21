@@ -16,13 +16,13 @@ vagrant ssh
 Run the service:
 
 ```
-cargo run
+cargo run --bin rust-s3-files-manager
 ```
 
 (the initial directory is the Rust project directory)
 
-## Tests
+## Interface tests
 
 ```
-cargo test
+cargo run --bin tests
 ```
