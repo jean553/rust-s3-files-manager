@@ -23,6 +23,3 @@ fn main() {
         ]
     ).launch();
 }
-
-#[cfg(test)]
-mod test;
