@@ -4,3 +4,8 @@ rust:
 
 before_script:
     - cd rust-s3-files-manager/ 
+
+script:
+    - cargo run --bin rust-s3-files-manager & echo $! > /tmp/service.pid 
+    - cargo run --bin tests
+    - kill "$(cat /tmp/proc.pid)"
