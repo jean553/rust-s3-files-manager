@@ -9,17 +9,3 @@
         dest="{{ ansible_env.HOME_DIRECTORY }}/.zshrc"
         line="cd {{ ansible_env.APP_PATH }}"
         insertafter=EOF
-
-    # TODO: #8 these environment variables should be loaded from the Vagrantfile
-    - name: set openssl environment variables, required for rust openssl-sys to compile
-      lineinfile:
-        dest="{{ ansible_env.HOME_DIRECTORY }}/.zshrc"
-        line="export OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu && export OPENSSL_INCLUDE_DIR=/usr/include/openssl"
-        insertafter=EOF
-
-    # TODO: #8
-    - name: set aws credentials
-      lineinfile:
-        dest="{{ ansible_env.HOME_DIRECTORY }}/.zshrc"
-        line="export AWS_ACCESS_KEY_ID=dummy && export AWS_SECRET_ACCESS_KEY=dummy"
-        insertafter=EOF

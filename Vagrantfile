@@ -9,7 +9,11 @@ DOCKER_ENV = {
   "HOST_USER_UID" => Process.euid,
   "HOME_DIRECTORY" => "#{HOME_DIRECTORY}",
   "PROJECT_DIRECTORY" => "#{PROJECT_DIRECTORY}",
-  "APP_PATH" => "#{PROJECT_DIRECTORY}/rust-s3-files-manager"
+  "APP_PATH" => "#{PROJECT_DIRECTORY}/rust-s3-files-manager",
+  "OPENSSL_LIB_DIR" => "/usr/lib/x86_64-linux-gnu",
+  "OPENSSL_INCLUDE_DIR" => "/usr/include/openssl",
+  "AWS_ACCESS_KEY_ID" => "dummy_key_id",
+  "AWS_SECRET_ACCESS_KEY" => "dummy_access_key"
 }
 
 ENV['VAGRANT_NO_PARALLEL'] = 'yes'
