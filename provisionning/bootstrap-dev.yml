@@ -16,3 +16,10 @@
         dest="{{ ansible_env.HOME_DIRECTORY }}/.zshrc"
         line="export OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu && export OPENSSL_INCLUDE_DIR=/usr/include/openssl"
         insertafter=EOF
+
+    # TODO: #8
+    - name: set aws credentials
+      lineinfile:
+        dest="{{ ansible_env.HOME_DIRECTORY }}/.zshrc"
+        line="export AWS_ACCESS_KEY_ID=dummy && export AWS_SECRET_ACCESS_KEY=dummy"
+        insertafter=EOF
