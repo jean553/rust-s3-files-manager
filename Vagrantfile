@@ -37,6 +37,7 @@ Vagrant.configure(2) do |config|
       d.volumes =  [
         "#{ENV['PWD']}/:#{PROJECT_DIRECTORY}",
       ]
+      d.link "#{PROJECT}_s3:s3"
     end
     app.ssh.username = "vagrant"
 
